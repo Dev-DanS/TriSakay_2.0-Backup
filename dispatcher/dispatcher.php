@@ -62,15 +62,13 @@ include('../php/session_dispatcher.php');
             const currentTimeElement = document.getElementById("current-time");
             const now = new Date();
             const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const dayOfWeek = daysOfWeek[now.getDay()]; // Get the day of the week
-            const dateTimeString = dayOfWeek + ', ' + now.toLocaleString(); // Combine day of the week with date and time
+            const dayOfWeek = daysOfWeek[now.getDay()];
+            const dateTimeString = dayOfWeek + ', ' + now.toLocaleString(); 
             currentTimeElement.textContent = dateTimeString;
         }
 
-        // Update the time initially
         updateCurrentTime();
 
-        // Update the time every second (1000 milliseconds)
         setInterval(updateCurrentTime, 1000);
     </script>
 
