@@ -1,15 +1,12 @@
 <?php
-// Include the database connection file
 include('../db/dbconn.php');
 
-// Query to select data from the "booking" table and join with the "commuters" table
 $sql = "SELECT b.bookingid, b.toda, b.commuterid, c.firstname, b.passengercount, b.fare, b.conveniencefee, b.Distance FROM booking b
         LEFT JOIN commuter c ON b.commuterid = c.commuterid";
 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Output data from each row
     while ($row = $result->fetch_assoc()) {
         echo "<div class='booking-info'>";
         echo "<p>Booking ID: " . $row["bookingid"] . "</p>";
@@ -25,6 +22,5 @@ if ($result->num_rows > 0) {
     echo "No data found.";
 }
 
-// Close the database connection
 $conn->close();
 ?>
